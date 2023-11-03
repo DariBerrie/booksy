@@ -44,6 +44,13 @@ gem "bootsnap", require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 gem "image_processing", "~> 1.2"
 
+# User authorization
+gem 'devise', '~> 4.9', '>= 4.9.3'
+
+# Bootstrap & SASS Sprockets
+gem 'bootstrap', '~> 5.3.2'
+gem 'dartsass-sprockets'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ]
