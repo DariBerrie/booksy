@@ -1,5 +1,6 @@
-<h5><%= link_to "Booksy", root_path %> </h5>
+<div class="navbar-container">
+  <h2><%= link_to "Booksy", root_path, class: "logo" %></h2>
 
-<h1>Tu es pret à decouvrir un autre monde, des nouvelles personnages et des connaissances incroyables ?
-  Bienvenue sur Booksy !
-</h1>
+  <h3><%= link_to "Les livres", books_path, class: "navbar-link" %></h3>
+  <h3><%= link_to "Connexion", new_user_session_path, class: "navbar-link" %></h3>
+</div>

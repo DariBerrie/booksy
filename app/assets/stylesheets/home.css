@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  padding: 20vw 10vw;
+  flex: auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container h1 { 
+  text-align: center;
+}

@@ -1,2 +1,9 @@
-<h1>Books#index</h1>
-<p>Find me in app/views/books/index.html.erb</p>
+<h1>Les livres</h1>
+<% @books.each do |book| %>
+  <div class="book-card">
+    <h4><%= book.title %></h4>
+    <p><%= "#{book.author.first_name} #{book.author.last_name}" %></p>
+    <p>Genre : <%= book.genre.capitalize %></p>
+    <p>Niveau de lecture : <%= book.reading_level %>
+  </div>
+<% end %>

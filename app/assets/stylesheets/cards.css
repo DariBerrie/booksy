@@ -1,0 +1,9 @@
+.book-card {
+  display: inline-block;
+  align-items: start;
+  width: 300px;
+  height: 200px;
+  padding-left: 4vw;
+  border: 1px grey solid;
+  border-radius: 24px;
+}

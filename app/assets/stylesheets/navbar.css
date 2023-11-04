@@ -1,0 +1,10 @@
+.navbar-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+  padding: 0 2vw;
+}
