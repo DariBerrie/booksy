@@ -22,7 +22,7 @@ flavie = Author.create!(first_name: "Flavie", last_name: "Pichot")
 puts "Creating books"
 book = Book.create!(title: "Le Lac d'Annecy", synopsis: "Coucou les amis ! On est en vacances à Annecy,en Haute-Savoie.
 C'est parti pour une balade autour du lac. Lily a repéré un arc-en-ciel. Et s'il avait un trésor à découvrir ?
-On va tout vous raconter ! Gros bisous", isbn: "978-2-38051-078-2", genre: "jeunesse", publication_date: Time.zone.parse("2023-10-18"), author: virginie)
+On va tout vous raconter ! Gros bisous", isbn: "978-2-38051-078-2", genre: "jeunesse", published_at: Time.zone.parse("2023-10-18"), author: virginie)
 
 puts "Creating users"
 user = User.create!(email: "darigoldman@gmail.com", username: "dariberrie", nickname: "dari", password: "12345678")

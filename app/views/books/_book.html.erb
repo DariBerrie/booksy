@@ -1,0 +1,13 @@
+  <div class="book-card">
+    <div class="cover-container">
+      <%= cl_image_tag book.cover.key, class: "book-card-cover" %>
+    </div>
+    <div class="book-details">
+      <h3><%= book.title %></h3>
+      <p><%= "#{book.author.first_name} #{book.author.last_name.upcase}" %><br/>
+      <p>Genre : <%= book.genre.capitalize %><br/>
+      <p>Langue : <%= book.language %><br/>
+      <p>Niveau de lecture : <%= book.reading_level %></p>
+    </div>
+    <%= link_to "Quiz Time", new_quiz_path, class: "btn-quiz" %>
+  </div>
