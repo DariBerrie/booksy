@@ -1,0 +1,9 @@
+%p{style: "color: green"}= notice
+%h1 À la decouverte des livres !
+#books
+  - @books.each do |book|
+    = link_to book do
+      = render book
+
+
+
