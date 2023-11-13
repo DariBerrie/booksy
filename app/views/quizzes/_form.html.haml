@@ -1,0 +1,18 @@
+= simple_form_for [@book, quiz] do |f|
+  - if quiz.errors.any?
+    %div{style: "color: red"}
+      %h2= "#{pluralize(quiz.errors.count, "error")} prohibited this quiz from being saved:"
+
+      %ul
+        -quiz.errors.each do |error|
+          %li= error.full_message
+  %div
+    = f.simple_fields_for :questions do |questions_form|
+      - @questions.each do |question|
+        .form-control.quiz-question
+          = questions_form.input :user_response,
+            as: :radio_buttons, collection: [question.option_a, question.option_b, question.option_c, question.option_d],
+            required: false, label: question.question_text
+  %div
+    = f.submit
+

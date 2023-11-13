@@ -9,8 +9,8 @@
 #   end
 
 puts "Destroying quizzes, questions, users, books, and authors..."
-Quiz.destroy_all
 Question.destroy_all
+Quiz.destroy_all
 User.destroy_all
 Book.destroy_all
 Author.destroy_all
@@ -22,13 +22,17 @@ flavie = Author.create!(first_name: "Flavie", last_name: "Pichot")
 puts "Creating books"
 book = Book.create!(title: "Le Lac d'Annecy", synopsis: "Coucou les amis ! On est en vacances à Annecy,en Haute-Savoie.
 C'est parti pour une balade autour du lac. Lily a repéré un arc-en-ciel. Et s'il avait un trésor à découvrir ?
-On va tout vous raconter ! Gros bisous", isbn: "978-2-38051-078-2", genre: "jeunesse", published_at: Time.zone.parse("2023-10-18"), author: virginie)
+On va tout vous raconter ! Gros bisous", isbn: "978-2-38051-078-2", genre: "jeunesse",
+language: "français", published_at: Time.zone.parse("2023-10-18"), author: virginie)
+book.cover.attach(io: URI.open("https://res.cloudinary.com/booksy/image/upload/v1699180525/development/tp9mgpqd316am3tffw4e73selxou.jpg"),
+  filename: "#{book.title.strip}_cover.jpg", content_type: "image/jpg")
+book.save
 
 puts "Creating users"
 user = User.create!(email: "darigoldman@gmail.com", username: "dariberrie", nickname: "dari", password: "12345678")
 
 puts "Creating quizzes and questions"
-quiz = Quiz.create!(title: "Quiz sur Dari", user: user)
+quiz = Quiz.create!(user: user)
 
 first = Question
   .create!(question_text: "Quel est le nom de la mère de Dari ?",

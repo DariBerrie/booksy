@@ -1,0 +1,22 @@
+.quiz-question {
+  padding: 0vh 2vw;
+
+  .col-form-label {
+    margin-bottom: 2vh;
+    font-weight: 500 !important;
+    color: red !important;
+    line-height: 2em;
+  }
+
+  .form-check {
+    padding-top: 1vh;
+
+    .form-check-input {
+      margin-left: -.5em !important;
+    }
+
+    .form-check-label{
+      padding-left: 1em !important;
+    }
+  }
+}
