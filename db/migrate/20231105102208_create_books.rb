@@ -6,7 +6,7 @@ class CreateBooks < ActiveRecord::Migration[7.1]
       t.string :reading_level
       t.string :isbn
       t.string :genre
-      t.date :publication_date
+      t.date :published_at
       t.references :author, null: false, foreign_key: true
 
       t.timestamps

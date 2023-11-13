@@ -1,0 +1,10 @@
+.book-card
+  .cover-container
+    =cl_image_tag book.cover.key, class: "book-card-cover"
+  .book-details
+    %h3= book.title
+    %p #{book.author.first_name} #{book.author.last_name.upcase}
+    %p Genre : #{book.genre.capitalize}
+    %p Langue : #{book.language.capitalize}
+    %p Niveau de lecture : #{book.reading_level}
+  = link_to "Quiz Time", new_book_quiz_path(book), class: "btn-quiz" 

@@ -6,7 +6,7 @@ one:
   reading_level: MyString
   isbn: MyString
   genre: MyString
-  publication_date: 2023-11-02
+  published_at: 2023-11-05
   author: one
 
 two:
@@ -15,5 +15,5 @@ two:
   reading_level: MyString
   isbn: MyString
   genre: MyString
-  publication_date: 2023-11-02
+  published_at: 2023-11-05
   author: two

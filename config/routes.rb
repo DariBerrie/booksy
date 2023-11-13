@@ -8,9 +8,14 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :books
+  resources :books do
+    resources :quizzes, only: %w[ new create ]
+  end
+
+  resources :users do
+    resources :quizzes, only: %w[ index show ]
+  end
 
   resources :authors
 
-  resources :quizzes
 end
