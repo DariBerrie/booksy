@@ -16,9 +16,8 @@ class QuizzesController < ApplicationController
     @quiz = Quiz.new
     book_id = params.extract_value(:book_id)
     @book = Book.find(book_id).sole
-    randomized_questions = Question.where(book: @book)
- 
-    
+    @randomized_questions = Question.where(book: @book)
+    @quiz.questions.build
   end
 
   # GET /quizzes/1/edit
@@ -28,8 +27,10 @@ class QuizzesController < ApplicationController
   # POST /quizzes or /quizzes.json
   def create
     @quiz = Quiz.new(quiz_params)
+    book = Book.find(params.extract_value(:book_id))
+    binding.pry
+    @quiz.book = book.sole
     @quiz.user = current_user
-    @questions = Question.where(quiz: @quiz)
     
 
 
@@ -75,6 +76,6 @@ class QuizzesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def quiz_params
-      params.require(:quiz).permit(questions_attributes: [:id, :user_response])
+      params.require(:quiz).permit(questions_attributes: [:id, :book_id, :user_response])
     end
 end

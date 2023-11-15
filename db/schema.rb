@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_12_084756) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_14_195908) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -72,7 +72,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_12_084756) do
     t.integer "quiz_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "user_response"
     t.index ["book_id"], name: "index_questions_on_book_id"
     t.index ["quiz_id"], name: "index_questions_on_quiz_id"
   end
@@ -83,6 +82,16 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_12_084756) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_quizzes_on_user_id"
+  end
+
+  create_table "user_responses", force: :cascade do |t|
+    t.string "response"
+    t.integer "question_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_user_responses_on_question_id"
+    t.index ["user_id"], name: "index_user_responses_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -102,4 +111,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_12_084756) do
   add_foreign_key "questions", "books"
   add_foreign_key "questions", "quizzes"
   add_foreign_key "quizzes", "users"
+  add_foreign_key "user_responses", "questions"
+  add_foreign_key "user_responses", "users"
 end

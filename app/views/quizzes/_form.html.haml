@@ -7,11 +7,11 @@
         -quiz.errors.each do |error|
           %li= error.full_message
   %div
-    = f.simple_fields_for :questions do |questions_form|
-      - @questions.each do |question|
+    = f.simple_fields_for :user_responses do |response_form|
+      - @randomized_questions.each do |question|
         .form-control.quiz-question
-          = questions_form.input :user_response,
-            as: :radio_buttons, collection: [question.option_a, question.option_b, question.option_c, question.option_d],
+          = response_form.input :user_response,
+            as: :check_boxes, collection: [question.option_a, question.option_b, question.option_c, question.option_d],
             required: false, label: question.question_text
   %div
     = f.submit
